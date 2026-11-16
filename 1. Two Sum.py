@@ -56,8 +56,18 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 # Solution
 
 class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
+    """ def twoSum(self, nums: list[int], target: int) -> list[int]:
         for i in range (0, len(nums)):
             for j in range (1, len(nums)):
                 if nums[i] + nums[j] == target:
-                    return [i, j]
+                    return [i, j] """
+
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        hash_table = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in hash_table:
+                return[hash_table[complement], i]
+            hash_table[num] = i
+
+        return[]
